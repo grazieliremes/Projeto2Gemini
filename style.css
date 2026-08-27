@@ -1,0 +1,256 @@
+:root {
+      /* Tom monocromático base: Azul Safira Escuro (#0B132B) */
+      --cor-base: #3055c4;
+      --cor-fundo: #ffffff;
+      --cor-superficie: #f4f6fb;
+      --cor-borda: #152e79;
+      --cor-foco: #4872e5f5;
+      --cor-destaque-leitura: #e2e8f0;
+      
+      --tamanho-fonte-base: 1.25rem; /* 20px */
+      --tamanho-titulo: 2.2rem;
+      --tamanho-subtitulo: 1.5rem;
+      --tamanho-btn: 1.2rem;
+      --largura-maxima: 900px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--cor-fundo);
+      color: var(--cor-base);
+      line-height: 1.6;
+      font-size: var(--tamanho-fonte-base);
+      padding: 20px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--largura-maxima);
+    }
+
+    header {
+      text-align: center;
+      padding: 24px;
+      margin-bottom: 24px;
+      border-bottom: 4px solid var(--cor-base);
+    }
+
+    h1 {
+      font-size: var(--tamanho-titulo);
+      font-weight: 900;
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+      color: var(--cor-base);
+    }
+
+    .subtitulo-cabecalho {
+      font-size: 1.2rem;
+      font-weight: 600;
+      opacity: 0.9;
+    }
+
+    .bar-acessibilidade {
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .btn-ajuste-fonte {
+      background: var(--cor-fundo);
+      color: var(--cor-base);
+      border: 3px solid var(--cor-borda);
+      font-weight: 800;
+      padding: 6px 16px;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      cursor: pointer;
+    }
+
+    .painel-selecao-modo {
+      background-color: var(--cor-superficie);
+      border: 4px solid var(--cor-borda);
+      border-radius: 16px;
+      padding: 28px;
+      margin-bottom: 32px;
+      text-align: center;
+      box-shadow: 0 10px 25px -5px rgba(11, 19, 43, 0.1);
+    }
+
+    .painel-selecao-modo h2 {
+      font-size: var(--tamanho-subtitulo);
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+
+    .botoes-modo-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .btn-modo {
+      background-color: var(--cor-base);
+      color: var(--cor-fundo);
+      border: 4px solid var(--cor-base);
+      padding: 20px 24px;
+      font-size: var(--tamanho-btn);
+      font-weight: 800;
+      border-radius: 12px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      transition: transform 0.15s ease, background-color 0.2s ease;
+    }
+
+    .btn-modo span.icone {
+      font-size: 2rem;
+    }
+
+    .btn-modo:hover,
+    .btn-modo:focus {
+      background-color: var(--cor-fundo);
+      color: var(--cor-base);
+      transform: translateY(-2px);
+      outline: 4px solid var(--cor-foco);
+      outline-offset: 4px;
+    }
+
+    .btn-modo.ativo {
+      background-color: var(--cor-fundo);
+      color: var(--cor-base);
+      border-width: 6px;
+      box-shadow: inset 0 0 0 2px var(--cor-base);
+    }
+
+    .status-modo {
+      margin-top: 20px;
+      font-weight: 700;
+      font-size: 1.25rem;
+      padding: 12px;
+      background: #ffffff;
+      border: 2px dashed var(--cor-base);
+      border-radius: 8px;
+    }
+
+    .container-dicas {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin-bottom: 60px;
+    }
+
+    .card-dica {
+      background-color: var(--cor-fundo);
+      border: 4px solid var(--cor-borda);
+      border-radius: 16px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .card-dica.lendo-agora {
+      background-color: var(--cor-destaque-leitura);
+      border-left-width: 12px;
+      transform: scale(1.01);
+    }
+
+    .card-dica h3 {
+      font-size: calc(var(--tamanho-subtitulo) * 1.1);
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .card-dica p {
+      font-size: var(--tamanho-fonte-base);
+      font-weight: 500;
+    }
+
+    .btn-ler-item {
+      align-self: flex-start;
+      background-color: var(--cor-base);
+      color: var(--cor-fundo);
+      border: 3px solid var(--cor-base);
+      padding: 14px 24px;
+      font-size: 1.15rem;
+      font-weight: 800;
+      border-radius: 10px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .btn-ler-item:hover,
+    .btn-ler-item:focus {
+      background-color: var(--cor-fundo);
+      color: var(--cor-base);
+      outline: 4px solid var(--cor-foco);
+      outline-offset: 3px;
+    }
+
+    body.modo-cego-ativo .btn-ler-item {
+      display: none;
+    }
+
+    .painel-voz-flutuante {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: var(--cor-base);
+      color: var(--cor-fundo);
+      padding: 16px 28px;
+      border-radius: 50px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+      border: 3px solid var(--cor-fundo);
+      z-index: 1000;
+    }
+
+    .painel-voz-flutuante button {
+      background: var(--cor-fundo);
+      color: var(--cor-base);
+      border: none;
+      padding: 10px 18px;
+      border-radius: 20px;
+      font-weight: 800;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .painel-voz-flutuante button:focus,
+    .painel-voz-flutuante button:hover {
+      outline: 3px solid var(--cor-foco);
+    }
+
+    .escondido {
+      display: none !important;
+    }
+
+    *:focus-visible {
+      outline: 4px solid var(--cor-foco) !important;
+      outline-offset: 4px !important;
+    }
+  </style>
+</head>
+<body>
