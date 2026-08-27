@@ -123,6 +123,4 @@
       tamanhoFonteAtual = Math.max(16, Math.min(32, tamanhoFonteAtual + delta));
       document.documentElement.style.setProperty('--tamanho-fonte-base', `${tamanhoFonteAtual}px`);
     }
-  </script>
-</body>
-</html>
+  

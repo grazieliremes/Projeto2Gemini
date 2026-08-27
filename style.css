@@ -1,4 +1,4 @@
-<style>
+
     :root {
       /* Tom monocromático base: Azul Safira Escuro (#0B132B) */
       --cor-base: #0b132b;
@@ -252,6 +252,4 @@
       outline: 4px solid var(--cor-foco) !important;
       outline-offset: 4px !important;
     }
-  </style>
-</head>
-<body>
+ 
