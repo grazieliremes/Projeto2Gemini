@@ -1,11 +1,11 @@
 
     :root {
       /* Tom monocromático base: Azul Safira Escuro (#0B132B) */
-      --cor-base: #0b132b;
+      --cor-base: #1b48cf;
       --cor-fundo: #ffffff;
       --cor-superficie: #f4f6fb;
-      --cor-borda: #0b132b;
-      --cor-foco: #0044ff;
+      --cor-borda: #2f54c3;
+      --cor-foco: #4270ed;
       --cor-destaque-leitura: #e2e8f0;
       
       --tamanho-fonte-base: 1.25rem; /* 20px base */
