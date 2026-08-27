@@ -3,7 +3,7 @@
     let modoAtual = null;
     let tamanhoFonteAtual = 20;
 
-    // Atalhos globais do teclado
+    // Atalhos globais do teclado (1 para Cego, 2 para Baixa Visão, Esc para parar voz)
     document.addEventListener('keydown', (e) => {
       if (e.key === '1') {
         ativarModoCego();
