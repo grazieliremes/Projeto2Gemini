@@ -4,6 +4,271 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Segurança Digital Acessível</title>
+
+  <!-- ==========================================================================
+       PARTE 1: CSS (O que vai na tag <style> ou no arquivo "style.css")
+       ========================================================================== -->
+  <style>
+    :root {
+      /* Tom monocromático base: Azul Safira Escuro (#0B132B) */
+      --cor-base: #0b132b;
+      --cor-fundo: #ffffff;
+      --cor-superficie: #f4f6fb;
+      --cor-borda: #0b132b;
+      --cor-foco: #0044ff;
+      --cor-destaque-leitura: #e2e8f0;
+      
+      --tamanho-fonte-base: 1.25rem; /* 20px base */
+      --tamanho-titulo: 2.2rem;
+      --tamanho-subtitulo: 1.5rem;
+      --tamanho-btn: 1.2rem;
+      --largura-maxima: 900px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--cor-fundo);
+      color: var(--cor-base);
+      line-height: 1.6;
+      font-size: var(--tamanho-fonte-base);
+      padding: 20px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--largura-maxima);
+    }
+
+    header {
+      text-align: center;
+      padding: 24px;
+      margin-bottom: 24px;
+      border-bottom: 4px solid var(--cor-base);
+    }
+
+    h1 {
+      font-size: var(--tamanho-titulo);
+      font-weight: 900;
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+      color: var(--cor-base);
+    }
+
+    .subtitulo-cabecalho {
+      font-size: 1.2rem;
+      font-weight: 600;
+      opacity: 0.9;
+    }
+
+    .bar-acessibilidade {
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .btn-ajuste-fonte {
+      background: var(--cor-fundo);
+      color: var(--cor-base);
+      border: 3px solid var(--cor-borda);
+      font-weight: 800;
+      padding: 6px 16px;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      cursor: pointer;
+    }
+
+    .painel-selecao-modo {
+      background-color: var(--cor-superficie);
+      border: 4px solid var(--cor-borda);
+      border-radius: 16px;
+      padding: 28px;
+      margin-bottom: 32px;
+      text-align: center;
+      box-shadow: 0 10px 25px -5px rgba(11, 19, 43, 0.1);
+    }
+
+    .painel-selecao-modo h2 {
+      font-size: var(--tamanho-subtitulo);
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+
+    .botoes-modo-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .btn-modo {
+      background-color: var(--cor-base);
+      color: var(--cor-fundo);
+      border: 4px solid var(--cor-base);
+      padding: 20px 24px;
+      font-size: var(--tamanho-btn);
+      font-weight: 800;
+      border-radius: 12px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      transition: transform 0.15s ease, background-color 0.2s ease;
+    }
+
+    .btn-modo span.icone {
+      font-size: 2rem;
+    }
+
+    .btn-modo:hover,
+    .btn-modo:focus {
+      background-color: var(--cor-fundo);
+      color: var(--cor-base);
+      transform: translateY(-2px);
+      outline: 4px solid var(--cor-foco);
+      outline-offset: 4px;
+    }
+
+    .btn-modo.ativo {
+      background-color: var(--cor-fundo);
+      color: var(--cor-base);
+      border-width: 6px;
+      box-shadow: inset 0 0 0 2px var(--cor-base);
+    }
+
+    .status-modo {
+      margin-top: 20px;
+      font-weight: 700;
+      font-size: 1.25rem;
+      padding: 12px;
+      background: #ffffff;
+      border: 2px dashed var(--cor-base);
+      border-radius: 8px;
+    }
+
+    .container-dicas {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin-bottom: 60px;
+    }
+
+    .card-dica {
+      background-color: var(--cor-fundo);
+      border: 4px solid var(--cor-borda);
+      border-radius: 16px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .card-dica.lendo-agora {
+      background-color: var(--cor-destaque-leitura);
+      border-left-width: 12px;
+      transform: scale(1.01);
+    }
+
+    .card-dica h3 {
+      font-size: calc(var(--tamanho-subtitulo) * 1.1);
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .card-dica p {
+      font-size: var(--tamanho-fonte-base);
+      font-weight: 500;
+    }
+
+    .btn-ler-item {
+      align-self: flex-start;
+      background-color: var(--cor-base);
+      color: var(--cor-fundo);
+      border: 3px solid var(--cor-base);
+      padding: 14px 24px;
+      font-size: 1.15rem;
+      font-weight: 800;
+      border-radius: 10px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .btn-ler-item:hover,
+    .btn-ler-item:focus {
+      background-color: var(--cor-fundo);
+      color: var(--cor-base);
+      outline: 4px solid var(--cor-foco);
+      outline-offset: 3px;
+    }
+
+    body.modo-cego-ativo .btn-ler-item {
+      display: none;
+    }
+
+    .painel-voz-flutuante {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: var(--cor-base);
+      color: var(--cor-fundo);
+      padding: 16px 28px;
+      border-radius: 50px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+      border: 3px solid var(--cor-fundo);
+      z-index: 1000;
+    }
+
+    .painel-voz-flutuante button {
+      background: var(--cor-fundo);
+      color: var(--cor-base);
+      border: none;
+      padding: 10px 18px;
+      border-radius: 20px;
+      font-weight: 800;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .painel-voz-flutuante button:focus,
+    .painel-voz-flutuante button:hover {
+      outline: 3px solid var(--cor-foco);
+    }
+
+    .escondido {
+      display: none !important;
+    }
+
+    *:focus-visible {
+      outline: 4px solid var(--cor-foco) !important;
+      outline-offset: 4px !important;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==========================================================================
+       PARTE 2: HTML (O que vai na estrutura do <body> no arquivo "index.html")
+       ========================================================================== -->
   <div class="container">
     
     <!-- CONTROLES DE TAMANHO DE FONTE -->
@@ -113,6 +378,135 @@
     <span id="texto-status-voz">🔊 Lendo...</span>
     <button onclick="pararVoz()" aria-label="Parar leitura de voz">🛑 Parar Leitura</button>
   </div>
+
+  <!-- ==========================================================================
+       PARTE 3: JAVASCRIPT (O que vai na tag <script> ou no arquivo "script.js")
+       ========================================================================== -->
+  <script>
+    const synth = window.speechSynthesis;
+    let modoAtual = null;
+    let tamanhoFonteAtual = 20;
+
+    // Atalhos globais do teclado (1 para Cego, 2 para Baixa Visão, Esc para parar voz)
+    document.addEventListener('keydown', (e) => {
+      if (e.key === '1') {
+        ativarModoCego();
+      } else if (e.key === '2') {
+        ativarModoBaixaVisao();
+      } else if (e.key === 'Escape') {
+        pararVoz();
+      }
+    });
+
+    function falar(texto, aoFinalizar = null) {
+      if (!('speechSynthesis' in window)) {
+        console.warn("Navegador não possui suporte para síntese de fala.");
+        return;
+      }
+
+      synth.cancel();
+
+      const mensagem = new SpeechSynthesisUtterance(texto);
+      mensagem.lang = 'pt-BR';
+      mensagem.rate = 1.0;
+      mensagem.pitch = 1.0;
+
+      document.getElementById('painel-voz').classList.remove('escondido');
+
+      mensagem.onend = () => {
+        if (aoFinalizar) aoFinalizar();
+        if (!synth.speaking) {
+          document.getElementById('painel-voz').classList.add('escondido');
+        }
+      };
+
+      mensagem.onerror = () => {
+        document.getElementById('painel-voz').classList.add('escondido');
+      };
+
+      synth.speak(mensagem);
+    }
+
+    function pararVoz() {
+      synth.cancel();
+      document.getElementById('painel-voz').classList.add('escondido');
+      removerDestaqueLeitura();
+      
+      const status = document.getElementById('status-modo');
+      if (status) {
+        status.innerText = "Leitura interrompida.";
+      }
+    }
+
+    function ativarModoCego() {
+      modoAtual = 'cego';
+      document.body.classList.add('modo-cego-ativo');
+
+      document.getElementById('btn-modo-cego').classList.add('ativo');
+      document.getElementById('btn-modo-baixa-visao').classList.remove('ativo');
+      
+      const status = document.getElementById('status-modo');
+      status.innerText = "Modo Pessoa Cega Ativado. A voz de IA iniciará a leitura automática agora.";
+
+      const introducao = "Modo Pessoa Cega ativado. Bem-vindo ao Guia de Segurança Digital. Vou ler automaticamente todas as dicas para você. Dica 1:";
+      
+      const cartoes = document.querySelectorAll('.card-dica');
+      let indice = 0;
+
+      function lerProximoCartao() {
+        if (indice >= cartoes.length) {
+          falar("Fim das dicas de segurança digital. Você pode pressionar 1 para ouvir novamente ou navegar usando a tecla tab.");
+          removerDestaqueLeitura();
+          return;
+        }
+
+        const cartao = cartoes[indice];
+        removerDestaqueLeitura();
+        cartao.classList.add('lendo-agora');
+        cartao.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+        const titulo = cartao.querySelector('h3').innerText;
+        const texto = cartao.querySelector('p').innerText;
+        const textoCompleto = `${titulo}. ${texto}`;
+
+        falar(textoCompleto, () => {
+          indice++;
+          setTimeout(lerProximoCartao, 800);
+        });
+      }
+
+      falar(introducao, () => {
+        lerProximoCartao();
+      });
+    }
+
+    function ativarModoBaixaVisao() {
+      modoAtual = 'baixa-visao';
+      document.body.classList.remove('modo-cego-ativo');
+      pararVoz();
+
+      document.getElementById('btn-modo-baixa-visao').classList.add('ativo');
+      document.getElementById('btn-modo-cego').classList.remove('ativo');
+
+      const status = document.getElementById('status-modo');
+      status.innerText = "Modo Baixa Visão Ativado. Clique em 'Ler para mim' em qualquer dica para ouvir a leitura.";
+
+      falar("Modo Baixa Visão ativado. Utilize os botões Ler para Mim abaixo de cada dica para ouvir a leitura de um item específico.");
+    }
+
+    function lerTextoIndividual(texto) {
+      pararVoz();
+      falar(texto);
+    }
+
+    function removerDestaqueLeitura() {
+      document.querySelectorAll('.card-dica').forEach(c => c.classList.remove('lendo-agora'));
+    }
+
+    function alterarFonte(delta) {
+      tamanhoFonteAtual = Math.max(16, Math.min(32, tamanhoFonteAtual + delta));
+      document.documentElement.style.setProperty('--tamanho-fonte-base', `${tamanhoFonteAtual}px`);
+    }
   </script>
 </body>
 </html>
